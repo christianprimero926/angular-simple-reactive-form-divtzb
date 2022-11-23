@@ -1,59 +1,49 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
-        <div class="form-group">
-          <label for="firstName">first Name</label>
-          <input
-            type="text"
-            id="firstName"
-            formControlName="firstName"
-            class="form-control"
-          />
-        </div>
-        <div class="form-group">
-          <label for="lastName">last Name</label>
-          <input
-            type="text"
-            id="lastName"
-            formControlName="lastName"
-            class="form-control"
-          />
-        </div>
-        <div class="form-group">
-          <label for="phoneNumber">phone Number</label>
-          <input
-            type="tel"
-            id="phoneNumber"
-            formControlName="phoneNumber"
-            class="form-control"
-          />
-        </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">first Name</th>
-              <th scope="col">last Name</th>
-              <th scope="col">phone Number</th>
-            </tr>
-          </thead>
-
-          <tbody *ngFor="let contact of listContacts">
-            <tr>
-              <td>
-                {{ contact['firstName'] }}
-              </td>
-              <td>
-                {{ contact['lastName'] }}
-              </td>
-              <td>
-                {{ contact['phoneNumber'] }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-    </div>
+<div class="form-wrapper">
+<form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+  <div>
+    <label for="firstName">First name</label>
+    <input 
+    type="text" 
+    id="firstName" 
+    formControlName="firstName" 
+    class="userFirstname">
   </div>
+  <div>
+    <label for="lastName">Last name</label>
+    <input 
+    type="text" 
+    id="lastName" 
+    formControlName="lastName" 
+    class="userLastname">
+  </div>
+  <div>
+    <label for="phoneNumber">Phone number</label>
+    <input 
+    type="tel" 
+    id="phoneNumber" 
+    formControlName="phoneNumber" 
+    class="userPhone">
+  </div>
+  <div>
+    <input type="submit" value="submit" class="submitButton">
+  </div>
+</form>
+<div>
+<div class="informationTable">
+<table class="default">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let contact of listContacts">
+    <tr>
+      <td>{{ contact['firstName'] }}</td>
+      <td>{{ contact['lastName'] }}</td>
+      <td>{{ contact['phoneNumber'] }}</td>
+    </tr>
+  </tbody>
+</table>
 </div>
